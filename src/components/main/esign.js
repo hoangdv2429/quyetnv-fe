@@ -12,19 +12,19 @@ const Esign = () => {
         <div className="esign--wrapper is-flex ju-center al-end">
           <div className="load-pdf--wrapper is-flex-col al-center ju-center">
             <div className="load-pdf__icon">
-              <i class="far fa-file-pdf"></i>
+              <i class="far fa-file-excel"></i>
             </div>
             <div className="load-pdf__title">
-              Upload your PDF to start signing!
+              Upload your Excel to start signing!
             </div>
             <div className="load-pdf__btn">
               <div class="upload-btn-wrapper">
-                <button class="btn">Load PDF</button>
+                <button class="btn">Load Excel</button>
                 <input type="file" name="myfile" />
               </div>
             </div>
           </div>
-          <div className="sign__left--wrapper is-flex-col al-center ju-center">
+          {/* <div className="sign__left--wrapper is-flex-col al-center ju-center">
             <div className="sign--wrapper">
               <div className="sign__left--title">
                 <p>Chữ ký chính</p>
@@ -69,7 +69,7 @@ const Esign = () => {
                 </div>
               </div>
             </div>
-          </div>
+          </div> */}
         </div>
       </div>
       <Footer />

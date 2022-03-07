@@ -15,11 +15,11 @@ const Esign = () => {
               <i class="far fa-file-excel"></i>
             </div>
             <div className="load-pdf__title">
-              Upload your Excel to start signing!
+              Upload your Excel to start storing and signing!
             </div>
             <div className="load-pdf__btn">
               <div class="upload-btn-wrapper">
-                <button class="btn">Load Excel</button>
+                <button class="btn">Load Exel</button>
                 <input type="file" name="myfile" />
               </div>
             </div>

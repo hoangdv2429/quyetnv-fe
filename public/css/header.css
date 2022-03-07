@@ -1,0 +1,45 @@
+
+.header--wrapper {
+    overflow: hidden;
+    height: 100px;
+}
+
+.pd-8 {
+    padding: 8px;
+}
+
+.is-flex {
+    display: flex;
+}
+
+.al-center {
+    align-items: center;
+}
+
+.ju-center {
+    justify-content: center
+}
+
+.bg-primary {
+    background: rgb(155, 5, 4);
+}
+
+.cl-white {
+    color: #fff;
+}
+
+.header__img {
+    height: 84px;
+    margin-right: 16px;
+    object-fit: cover;
+}
+
+.header__title {
+    font-size: 15px;
+    font-family: Roboto, Helvetica, Arial, sans-serif;
+    line-height: 22px;
+}
+
+.ml-170 {
+    margin-left: 170px;
+}

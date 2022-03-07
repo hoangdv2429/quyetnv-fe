@@ -1,0 +1,212 @@
+:focus {
+  outline: none;
+}
+
+/* necessary to give position: relative to parent. */
+input[type="text"] {
+  font: 18px "Lato", Arial, sans-serif;
+  color: #333;
+  width: 100%;
+  box-sizing: border-box;
+  letter-spacing: 1px;
+}
+
+.input-effect {
+  margin: 10px;
+  position: relative;
+}
+
+.effect {
+  border: 1px solid #ccc;
+  padding: 14px 20px;
+  transition: 0.4s;
+  background: transparent;
+  border-radius: 5px;
+}
+
+.effect ~ .focus-border:before,
+.effect ~ .focus-border:after {
+  content: "";
+  position: absolute;
+  top: -1px;
+  left: 50%;
+  width: 0;
+  height: 2px;
+  background-color: #3399ff;
+  transition: 0.4s;
+}
+.effect ~ .focus-border:after {
+  top: auto;
+  bottom: 0;
+}
+.effect ~ .focus-border i:before,
+.effect ~ .focus-border i:after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 0;
+  width: 2px;
+  height: 0;
+  background-color: #3399ff;
+  transition: 0.4s;
+}
+.effect ~ .focus-border i:after {
+  left: auto;
+  right: 0;
+}
+.effect:focus ~ .focus-border:before,
+.effect:focus ~ .focus-border:after {
+  left: 0;
+  width: 100%;
+  transition: 0.4s;
+}
+.effect:focus ~ .focus-border i:before,
+.effect:focus ~ .focus-border i:after {
+  top: -1px;
+  height: 100%;
+  transition: 0.4s;
+}
+.effect ~ label {
+  position: absolute;
+  left: 14px;
+  width: 90%;
+  top: 16px;
+  color: rgb(139, 134, 134);
+  transition: 0.3s;
+  z-index: -1;
+  letter-spacing: 0.5px;
+}
+.effect:focus ~ label {
+  top: -8px;
+  left: 8px;
+  font-size: 12px;
+  color: #3399ff;
+  transition: 0.3s;
+  display: block;
+  background-color: white;
+  z-index: 10;
+  text-align: center;
+}
+
+.effect__pw--again:focus ~ label {
+  max-width: 136px;
+}
+
+.effect__pw:focus ~ label {
+  max-width: 80px;
+}
+
+.effect__email:focus ~ label {
+  max-width: 60px;
+}
+
+.is-flex-col {
+  display: flex;
+  flex-direction: column;
+}
+
+.auth__header--icon {
+  background-color: rgb(25, 118, 210);
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  margin: 8px;
+}
+
+.auth__header--icon > svg {
+  width: 21px;
+  fill: #fff;
+}
+
+.auth__form {
+  margin-top: 64px;
+  width: 100%;
+}
+
+.w30 {
+  width: 30%;
+}
+
+.auth__header--label {
+  font-size: 30px;
+  font-family: arial;
+}
+
+.auth__body {
+  margin-top: 24px;
+}
+
+.auth__footer--checkbox {
+  padding: 10px 12px;
+  margin-right: 5px;
+  border-radius: 50%;
+  transition: all 0.5s ease;
+  cursor: pointer;
+}
+
+.auth__footer--checkbox:hover {
+  background-color: #cce2ff;
+  color: rgba(0, 0, 0, 0.87);
+}
+
+input[type="checkbox"] {
+  position: relative;
+  width: 1.5em;
+  height: 1.5em;
+  color: #363839;
+  border: 1px solid #bdc1c6;
+  border-radius: 4px;
+  appearance: none;
+  outline: 0;
+  cursor: pointer;
+  transition: background 0.8s cubic-bezier(0.1, 0.1, 0.25, 1);
+}
+input[type="checkbox"]::before {
+  position: absolute;
+  content: "";
+  display: block;
+  top: -1px;
+  left: 4px;
+  width: 6px;
+  height: 12px;
+  border-style: solid;
+  border-color: white;
+  border-width: 0 3px 3px 0;
+  transform: rotate(45deg);
+  opacity: 0;
+}
+input[type="checkbox"]:checked {
+  color: white;
+  border-color: rgb(25, 118, 210);
+  background: rgb(25, 118, 210);
+}
+input[type="checkbox"]:checked::before {
+  opacity: 1;
+}
+
+.auth__box {
+  height: 34px;
+  max-width: 100%;
+  border-radius: 5px;
+  background-color:rgb(25, 118, 210);
+  font-size: 14px;
+  color: white;
+  text-transform: uppercase;
+  margin: 24px 10px 16px;
+  cursor: pointer;
+}
+
+.ju-right {
+  justify-content: right;
+}
+
+.auth__redirect {
+  margin: 0 10px 48px;
+  line-height: 10px;;
+  cursor: pointer;
+}
+
+.auth__redirect--link {
+  color:rgb(25, 118, 210);
+  text-decoration: underline;
+}

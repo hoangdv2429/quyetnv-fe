@@ -8,7 +8,7 @@ export const axiosInstance = axios.create({
   responseType: 'json',
   headers: {
     'Content-Type': 'application/json',
-    'Authorization': `Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6Imh1c3QyMDIyQGdtYWlsLmNvbSIsImlzc3VlcklkIjoiNjFlNTNmOWY1ZjNjMGRmM2QzOWVmNWU1Iiwicm9sZXMiOlsxXSwiaWF0IjoxNjQ2NzEwNDg3LCJleHAiOjE2NDY3MTQwODd9.J106d7t5_FcE2jbOPnAiM3s6lFT41pjeixSFQIJYfPA`,
+    'Authorization': `Bearer ${localStorage.getItem('accessToken')}`,
   },
 }); 
 

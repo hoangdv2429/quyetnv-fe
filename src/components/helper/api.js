@@ -1,6 +1,6 @@
 'use strict'
-import axios from "axios";
-import { axiosInstance, headers } from "./config";
+import axios from 'axios';
+import { axiosInstance, headers, setAccessToken } from "./config";
 
 export const getIssuer = async () => {
     const response = await axiosInstance.get('/issuers');
@@ -76,6 +76,27 @@ export const getVerifyData = async (targetHash) => {
 export const updateIssuer = async (data) => {
     const response = await axiosInstance.patch('/issuers', data);
     return response.data;
+}
+
+export const login = async (data) => {
+    const instance = axios.create({
+        // eslint-disable-next-line max-len
+        baseURL: `http://localhost:3000`,
+        timeout: 5000,
+        responseType: 'json',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+      });
+    try {
+        const response = await instance.post('/auth/login', data);
+        localStorage.setItem('accessToken', response.data.accessToken);
+        return response.data.success;
+    } catch(e) {
+        console.log(e);
+        return false;
+    }
+    
 }
 
 

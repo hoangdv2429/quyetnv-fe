@@ -8,6 +8,7 @@ import Login from './components/auth/login';
 import Register from './components/auth/register';
 import Esign from './components/main/esign';
 import Cert from "./components/main/cert";
+import CertList from "./components/main/table";
 
 function App() {
   return (
@@ -17,6 +18,7 @@ function App() {
       <Route path="/register" element={<Register />}></Route>
       <Route path="/esign" element={<Esign />}></Route>
       <Route path="/cert" element={<Cert />}></Route>
+      <Route path="/list" element={<CertList />}></Route>
     </Routes>
   </BrowserRouter>
   );

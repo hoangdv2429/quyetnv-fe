@@ -80,6 +80,23 @@ const Esign = () => {
     })
   }
 
+  //rename json object
+  const renameJsonObjectAttribute = (json, oldAttName, newAttName) => {
+    json[newAttName]= json[oldAttName];
+    delete json[oldAttName];
+  }
+
+  const modifyJsonObjName = (json, mapOfName) => {
+      // const arr = JSON.parse(json);
+      for (let obj of json) {
+        for ( const [oldName, newName] of mapOfName) {
+          renameJsonObjectAttribute(obj, oldName, newName);
+        }
+      }
+      const updatedJson = JSON.stringify( json );
+      console.log ( updatedJson );
+  }
+
   return (
     <>
       <Header />

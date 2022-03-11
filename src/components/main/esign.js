@@ -12,14 +12,14 @@ const Esign = () => {
         <div className="esign--wrapper is-flex ju-center al-end">
           <div className="load-pdf--wrapper is-flex-col al-center ju-center">
             <div className="load-pdf__icon">
-              <i class="far fa-file-excel"></i>
+              <i className="far fa-file-excel"></i>
             </div>
             <div className="load-pdf__title">
               Upload your Excel to start storing and signing!
             </div>
             <div className="load-pdf__btn">
-              <div class="upload-btn-wrapper">
-                <button class="btn">Load Exel</button>
+              <div className="upload-btn-wrapper">
+                <button className="btn">Load Exel</button>
                 <input type="file" name="myfile" />
               </div>
             </div>
@@ -33,14 +33,14 @@ const Esign = () => {
                 <div className="sign__box--item is-flex al-center ju-center">
                   <div className="box__upload upload-btn-wrapper">
                     <input type="file" name="myfile" />
-                    <button class="box__upload--btn mr8">
-                      <i class="fas fa-file-upload"></i> <span>upload</span>
+                    <button className="box__upload--btn mr8">
+                      <i className="fas fa-file-upload"></i> <span>upload</span>
                     </button>
                   </div>
                   <div className="box__draw upload-btn-wrapper">
                     <input type="file" name="myfile" />
-                    <button class="box__upload--btn">
-                      <i class="fas fa-pencil-alt"></i>
+                    <button className="box__upload--btn">
+                      <i className="fas fa-pencil-alt"></i>
                       <span>draw</span>
                     </button>
                   </div>
@@ -55,14 +55,14 @@ const Esign = () => {
                 <div className="sign__box--item is-flex al-center ju-center">
                   <div className="box__upload upload-btn-wrapper">
                     <input type="file" name="myfile" />
-                    <button class="box__upload--btn mr8">
-                      <i class="fas fa-file-upload"></i> <span>upload</span>
+                    <button className="box__upload--btn mr8">
+                      <i className="fas fa-file-upload"></i> <span>upload</span>
                     </button>
                   </div>
                   <div className="box__draw upload-btn-wrapper">
                     <input type="file" name="myfile" />
-                    <button class="box__upload--btn">
-                      <i class="fas fa-pencil-alt"></i>
+                    <button className="box__upload--btn">
+                      <i className="fas fa-pencil-alt"></i>
                       <span>draw</span>
                     </button>
                   </div>

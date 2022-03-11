@@ -1,0 +1,246 @@
+
+.fz-40 {
+  font-size: 40px;
+}
+
+.fz-14 {
+  font-size: 14px;
+}
+
+.bold {
+  font-weight: bold;
+}
+
+.certificat-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 115vh;
+}
+
+.certificat-wrapper .global {
+  width: 50%;
+  display: flex;
+  justify-content: center;
+  border: rgb(243, 141, 141) solid 3px;
+  height: 100%;
+}
+
+.certificat-wrapper .right {
+  width: 100%;
+  background: url(../images/background/degree-bg1.svg) no-repeat;
+  background-size: 98% 100%;
+  background-position-x: center;
+  padding: 16px;
+  border: rgb(243, 141, 141) solid 3px;
+  margin: 3px;
+}
+
+.certificat-wrapper .right .republic {
+  font-size: 18px;
+  text-transform: uppercase;
+  text-align-last: center;
+}
+
+.certificat-wrapper .right .republic-sub {
+  font-size: 17px;
+  text-transform: capitalize;
+  padding-top: 10px;
+  text-align-last: center;
+}
+
+.certificat-wrapper .right .logo {
+  margin: 16px 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+}
+.certificat-wrapper .right .logo img {
+  width: 50px;
+}
+
+a {
+  color: #007bff;
+  text-decoration: none;
+  background-color: transparent;
+  -webkit-text-decoration-skip: objects;
+}
+img {
+  max-width: 100%;
+  height: auto;
+}
+.certificat-wrapper .right .president {
+  font-size: 24px;
+  font-family: TimesB, serif;
+  text-transform: uppercase;
+  margin: 0 0 0 0;
+  width: 100%;
+}
+.certificat-wrapper .right .confer {
+  font-size: 24px;
+  margin: 8px 0 0 0;
+  width: 100%;
+}
+.certificat-wrapper .right .degree-title {
+  font-family: CenturB;
+  font-size: 18px;
+  text-transform: uppercase;
+  color: #af0a04;
+  width: 100%;
+  text-align-last: center;
+}
+
+.mt45 {
+  margin-top: 45px;
+}
+.certificat-wrapper .right .major {
+  font-size: 32px;
+  text-transform: uppercase;
+  font-family: TimesB, serif;
+  width: 100%;
+}
+.certificat-wrapper .right .list {
+  display: flex;
+  flex-wrap: wrap;
+  margin: 24px 0 0 10%;
+  width: 100%;
+}
+.certificat-wrapper .right .list .line {
+  width: 100%;
+  display: flex;
+  font-family: Aptima;
+  font-size: 1.1rem;
+  text-align: left;
+  align-items: center;
+  margin: 0 0 0 0;
+}
+.certificat-wrapper .right .list .line .labels {
+  width: 25%;
+}
+.certificat-wrapper .right .list .line .name {
+  font-family: MangTre;
+  font-size: 24px;
+  margin: 0 0 0 4px;
+  width: 75%;
+  font-weight: bold;
+}
+.certificat-wrapper .right .list .line .name span {
+  font-family: TimesB, serif;
+  font-size: 20px;
+}
+.certificat-wrapper .right .list .line .details {
+  font-family: TimesR, serif;
+  margin: 0 0 0 4px;
+  width: 75%;
+  font-weight: bold;
+}
+.certificat-wrapper .right .date-town {
+  font-family: AptimaI;
+  font-size: 1.1rem;
+  margin: 100px 0 0 0;
+  text-align: right;
+  width: 100%;
+  position: relative;
+  left: 20px;
+}
+.certificat-wrapper .right .date-town .small-sign {
+  width: 45px;
+}
+.certificat-wrapper .right .stamp {
+  width: 60%;
+  position: relative;
+  top: -20px;
+  margin: 0 0 0 40%;
+}
+.certificat-wrapper .right .stamp .top {
+  font-family: TimesB, serif;
+  font-size: 1.7rem;
+  position: relative;
+  top: 30px;
+}
+.certificat-wrapper .right .stamp .stamp-img1 {
+  position: relative;
+  left: 20px;
+  width: 280px;
+}
+.certificat-wrapper .right .stamp .president {
+  font-size: 1.7rem;
+  position: relative;
+}
+.certificat-wrapper .right .president {
+  font-size: 24px;
+  font-family: TimesB, serif;
+  text-transform: uppercase;
+  margin: 0 0 0 0;
+  width: 100%;
+}
+@media (max-height: 722px) {
+  .certificat-wrapper .right .reg {
+    position: initial;
+    margin: 16px 0 0 0;
+    font-size: 16px;
+  }
+}
+.certificat-wrapper .right .reg {
+  font-family: Aptima;
+  text-align: left;
+  margin: 40px 0 0 0;
+  position: absolute;
+  bottom: 40px;
+  width: 100%;
+  font-size: 20px;
+}
+.certificat-wrapper .right .reg .line1 span {
+  font-family: Rubber;
+  color: #de0c04;
+}
+
+.main-nav {
+  font-family: Roboto, Arial, Helvetica, sans-serif;
+  z-index: 8000;
+  width: 90px;
+  display: flex;
+  align-items: flex-end;
+  position: fixed;
+  background: #fff;
+  padding: 0;
+  height: 100%;
+  right: 0;
+  top: 0;
+  box-shadow: -4px 0 10px rgb(0 0 0 / 10%);
+}
+
+.closed-d {
+  right: -100% !important;
+  transition: all 0.2s;
+  transition-delay: 0.2s;
+}
+.nav-menu-share {
+  z-index: 8000;
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  top: 0;
+  background-color: transparent;
+  right: -100%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  justify-content: flex-start;
+}
+.nav-menu-share ul .title-nav {
+  cursor: pointer;
+  color: #051217;
+  margin: 0;
+  height: 48px;
+  width: 100%;
+  text-align: left;
+  padding: 11px 16px 0 16px;
+  border-bottom: solid 1px #e6e7e8;
+  display: inline-block;
+}
+
+.h-100 {
+  height: 100vh;
+}

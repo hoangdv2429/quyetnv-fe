@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
 <svg version="1.2" width="22.02mm" height="20.96mm" viewBox="0 0 2202 2096" preserveAspectRatio="xMidYMid" fill-rule="evenodd" stroke-width="28.222" stroke-linejoin="round" xmlns="http://www.w3.org/2000/svg" xmlns:ooo="http://xml.openoffice.org/svg/export" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:presentation="http://sun.com/xmlns/staroffice/presentation" xmlns:smil="http://www.w3.org/2001/SMIL20/" xmlns:anim="urn:oasis:names:tc:opendocument:xmlns:animation:1.0" xml:space="preserve">
- <defs class="ClipPathGroup">
+ <defs className="ClipPathGroup">
   <clipPath id="presentation_clip_path" clipPathUnits="userSpaceOnUse">
    <rect x="0" y="0" width="2202" height="2096"/>
   </clipPath>
@@ -9,10 +9,10 @@
    <rect x="2" y="2" width="2198" height="2092"/>
   </clipPath>
  </defs>
- <defs class="TextShapeIndex">
+ <defs className="TextShapeIndex">
   <g ooo:slide="id1" ooo:id-list="id3"/>
  </defs>
- <defs class="EmbeddedBulletChars">
+ <defs className="EmbeddedBulletChars">
   <g id="bullet-char-template-57356" transform="scale(0.00048828125,-0.00048828125)">
    <path d="M 580,1141 L 1163,571 580,0 -4,571 580,1141 Z"/>
   </g>
@@ -44,21 +44,21 @@
    <path d="M 173,740 C 173,903 231,1043 346,1159 462,1274 601,1332 765,1332 928,1332 1067,1274 1183,1159 1299,1043 1357,903 1357,740 1357,577 1299,437 1183,322 1067,206 928,148 765,148 601,148 462,206 346,322 231,437 173,577 173,740 Z"/>
   </g>
  </defs>
- <defs class="TextEmbeddedBitmaps"/>
+ <defs className="TextEmbeddedBitmaps"/>
  <g>
-  <g id="id2" class="Master_Slide">
-   <g id="bg-id2" class="Background"/>
-   <g id="bo-id2" class="BackgroundObjects"/>
+  <g id="id2" className="Master_Slide">
+   <g id="bg-id2" className="Background"/>
+   <g id="bo-id2" className="BackgroundObjects"/>
   </g>
  </g>
- <g class="SlideGroup">
+ <g className="SlideGroup">
   <g>
    <g id="container-id1">
-    <g id="id1" class="Slide" clip-path="url(#presentation_clip_path)">
-     <g class="Page">
-      <g class="Graphic">
+    <g id="id1" className="Slide" clip-path="url(#presentation_clip_path)">
+     <g className="Page">
+      <g className="Graphic">
        <g id="id3">
-        <rect class="BoundingBox" stroke="none" fill="none" x="0" y="0" width="2202" height="2096"/>
+        <rect className="BoundingBox" stroke="none" fill="none" x="0" y="0" width="2202" height="2096"/>
         <path fill="rgb(255,226,177)" stroke="none" d="M 527,13 L 527,113 627,113 627,13 527,13 Z M 547,93 L 547,33 607,33 607,93 547,93 Z"/>
         <path fill="rgb(255,226,177)" stroke="none" d="M 13,627 L 113,627 113,528 13,528 13,627 Z M 93,547 L 93,608 33,608 33,547 93,547 Z"/>
         <path fill="rgb(255,226,177)" stroke="none" d="M 496,14 L 275,14 275,144 234,144 234,14 13,14 13,234 144,234 144,275 13,275 13,496 144,496 144,627 365,627 365,496 406,496 406,627 627,627 627,406 496,406 496,365 627,365 627,144 496,144 496,14 Z M 557,557 L 557,477 496,477 496,426 608,426 608,608 426,608 426,365 477,365 477,557 557,557 Z M 496,538 L 496,496 537,496 537,538 496,538 Z M 406,426 L 406,477 234,477 234,426 406,426 Z M 295,557 L 295,496 345,496 345,608 164,608 164,365 215,365 215,557 295,557 Z M 234,538 L 234,496 275,496 275,538 234,538 Z M 84,84 L 84,164 144,164 144,215 33,215 33,33 215,33 215,275 164,275 164,84 84,84 Z M 144,103 L 144,144 103,144 103,103 144,103 Z M 234,215 L 234,164 406,164 406,215 234,215 Z M 345,84 L 345,145 295,145 295,33 477,33 477,275 426,275 426,84 345,84 Z M 406,103 L 406,144 365,144 365,103 406,103 Z M 496,215 L 496,164 608,164 608,346 365,346 365,295 557,295 557,215 496,215 Z M 496,275 L 496,234 537,234 537,275 496,275 Z M 365,275 L 365,234 406,234 406,275 365,275 Z M 406,365 L 406,406 365,406 365,365 406,365 Z M 345,234 L 345,406 295,406 295,234 345,234 Z M 234,275 L 234,234 275,234 275,275 234,275 Z M 144,426 L 144,477 33,477 33,295 275,295 275,346 84,346 84,426 144,426 Z M 144,365 L 144,406 103,406 103,365 144,365 Z M 275,365 L 275,406 234,406 234,365 275,365 Z"/>

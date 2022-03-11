@@ -7,8 +7,10 @@ import * as XLSX from 'xlsx';
 import Cert from "./cert";
 import html2canvas from 'html2canvas';
 import jsPDF from 'jspdf';
+import { getAxiosInstance } from "../helper/config"
 
 const Esign = () => {
+  console.log(getAxiosInstance());
   const [data, setData] = useState([]);
   const convertToJson = (csv) => {
     var lines = csv.split('\n');

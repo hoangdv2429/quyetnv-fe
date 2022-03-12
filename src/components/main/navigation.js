@@ -8,7 +8,7 @@ const Navigation = () => {
         <Link to="" className="navigation__item navigation__main">Trang chủ</Link>
         <Link to="" className="navigation__item navigation__teach">Giảng dạy</Link>
         <Link to="" className="navigation__item navigation__pointer">Nhập điểm</Link>
-        <Link to="" className="navigation__item navigation__item--active navigation__sign">Sign document</Link>
+        <Link to="" className="navigation__item navigation__item--active navigation__sign">Upload Certificate</Link>
         <Link to="" className="navigation__item navigation__verify">Verify document</Link>
       </div>
     </>

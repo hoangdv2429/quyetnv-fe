@@ -1,62 +1,64 @@
 import React, { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
-import { getPublicCert, getVerifyData } from '../helper/api';
-import { saveAs } from 'file-saver';
-import html2canvas from 'html2canvas';
-import jsPDF from 'jspdf';
+import { useParams, useNavigate } from "react-router-dom";
+import { getPublicCert, getVerifyData } from "../helper/api";
+import { saveAs } from "file-saver";
+import html2canvas from "html2canvas";
+import jsPDF from "jspdf";
+import Qrcodetosvg from "./../main/qrCert";
 
 const Cert = (props) => {
   const params = useParams();
+  let navigate = useNavigate();
   let targetHash = "";
   targetHash = params.targetHash;
   console.log("targetHash >>", targetHash);
   const [data, setData] = useState({});
 
   useEffect(() => {
-    console.log('first')
+    console.log("first");
     getPublicData();
     // await getIssuerData();
   }, []);
 
   const getPublicData = async () => {
     const data = await getPublicCert(targetHash);
-    console.log('getPublicData', data)
+    console.log("getPublicData", data);
     setData(data);
   };
 
   const dowloadPdf = async () => {
-    const input = document.getElementById('content');
-    html2canvas(input, {useCORS: true})
-      .then((canvas) => {
-        const imgData = canvas.toDataURL('image/png');
-        const pdf = new jsPDF('l');
-        const width = pdf.internal.pageSize.getWidth();
-        const height = pdf.internal.pageSize.getHeight();
-        pdf.addImage(imgData, 'JPEG', 0, 0, width, height);
-        // pdf.output('dataurlnewwindow');
-        pdf.save("download.pdf");
-      })
-    ;
+    const input = document.getElementById("content");
+    html2canvas(input, { useCORS: true }).then((canvas) => {
+      const imgData = canvas.toDataURL("image/png");
+      const pdf = new jsPDF("l");
+      const width = pdf.internal.pageSize.getWidth();
+      const height = pdf.internal.pageSize.getHeight();
+      pdf.addImage(imgData, "JPEG", 0, 0, width, height);
+      // pdf.output('dataurlnewwindow');
+      pdf.save("download.pdf");
+    });
     const verifyData = await getVerifyData(targetHash);
-    const fileName = 'verifyData.json';
+    const fileName = "verifyData.json";
 
     const fileToSave = new Blob([JSON.stringify(verifyData)], {
-        type: 'application/json',
-        name: fileName
+      type: "application/json",
+      name: fileName,
     });
 
     // Save the file
     saveAs(fileToSave, fileName);
-  }
+  };
 
   console.log("data >>", data);
   return (
     <div className="certificat-wrapper certificat-wrapper--front">
       <div className="global">
         <div className="right">
-          <div className="republic">trường đại học bách khoa hà nội</div>
-          <div className="republic-sub">
-            Hanoi University of Science and Technology
+          <div className="schoolName bold">
+            <div className="republic">trường đại học bách khoa hà nội</div>
+            <div className="republic-sub">
+              Hanoi University of Science and Technology
+            </div>
           </div>
           <div className="mt45 bold">
             <div className="degree-title bold">chứng chỉ tiếng anh</div>
@@ -104,6 +106,9 @@ const Cert = (props) => {
                 className="small-sign"
               />
           </div> */}
+          <div className="qr-code is-flex al-center ju-center">
+            <Qrcodetosvg data="abc" />
+          </div>
           <div className="reg">
             <div className="line1">
               Số hiệu: <span>DTH/1B012806</span>

@@ -11,15 +11,36 @@
   font-weight: bold;
 }
 
+.is-flex {
+  display:flex;
+}
+
+.al-center {
+  align-items: center;
+}
+
+.ju-center {
+  justify-content: center;
+}
+
+.ml-20 {
+  margin-left: 20px;
+}
+
+.flex-col {
+  display: flex;
+  flex-direction: column;
+}
+
 .certificat-wrapper {
   display: flex;
   align-items: center;
   justify-content: center;
-  height: 115vh;
+  height: 100vh;
 }
 
 .certificat-wrapper .global {
-  width: 50%;
+  width: 515px;
   display: flex;
   justify-content: center;
   border: rgb(243, 141, 141) solid 3px;
@@ -101,26 +122,24 @@ img {
   width: 100%;
 }
 .certificat-wrapper .right .list {
-  display: flex;
-  flex-wrap: wrap;
-  margin: 24px 0 0 10%;
   width: 100%;
+  margin-left: 20%;
+  margin-top: 40px;
 }
 .certificat-wrapper .right .list .line {
   width: 100%;
   display: flex;
   font-family: Aptima;
   font-size: 1.1rem;
-  text-align: left;
   align-items: center;
-  margin: 0 0 0 0;
+  margin-top: 5px;
 }
 .certificat-wrapper .right .list .line .labels {
   width: 25%;
 }
 .certificat-wrapper .right .list .line .name {
   font-family: MangTre;
-  font-size: 24px;
+  font-size: 18px;
   margin: 0 0 0 4px;
   width: 75%;
   font-weight: bold;
@@ -132,7 +151,7 @@ img {
 .certificat-wrapper .right .list .line .details {
   font-family: TimesR, serif;
   margin: 0 0 0 4px;
-  width: 75%;
+  /* width: 75%; */
   font-weight: bold;
 }
 .certificat-wrapper .right .date-town {
@@ -190,6 +209,7 @@ img {
   bottom: 40px;
   width: 100%;
   font-size: 20px;
+  font-size: 16px;
 }
 .certificat-wrapper .right .reg .line1 span {
   font-family: Rubber;

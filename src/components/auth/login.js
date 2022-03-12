@@ -1,8 +1,37 @@
-import React from "react";
+import React, { useState } from "react";
 import Header from "../layout/header";
 import Footer from "../layout/Footer";
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
+import { login } from "../helper/api";
+import { axiosInstance } from "../helper/config";
 const Login = () => {
+  const [username, setUserName] = useState();
+  const [password, setPassword] = useState();
+  const navigate = useNavigate();
+
+  const handeChangeUserName = (e) => {
+    setUserName(e.target.value);
+  }
+
+  const handeChangePassword = (e) => {
+    setPassword(e.target.value);
+  }
+
+  const onSubmit = async () => {
+    const data = {
+      email: username,
+      password: password
+    }
+    const response = await login(data);
+    console.log(response);
+    // kiem tra login thanh cong
+    if(response) {
+      navigate('/esign')
+    } else {
+      // TO DO: THROW ERR O DAY
+    }
+  }
+
   return (
     <>
       <Header />
@@ -26,15 +55,15 @@ const Login = () => {
               </div>
             </div>
             <div className="auth__body is-flex-col">
-              <div className="input-effect">
-                <input className="effect effect__email" type="text" placeholder="" autoFocus/>
+              <div class="input-effect">
+                <input class="effect effect__email" type="text" placeholder="" autoFocus onChange={handeChangeUserName}/>
                 <label>Email*</label>
                 <span className="focus-border">
                   <i></i>
                 </span>
               </div>
-              <div className="input-effect">
-                <input className="effect effect__pw" type="text" placeholder="" />
+              <div class="input-effect">
+                <input class="effect effect__pw" type="password" placeholder="" onChange={handeChangePassword} />
                 <label>Mật khẩu*</label>
                 <span className="focus-border">
                   <i></i>
@@ -48,7 +77,7 @@ const Login = () => {
               <label className="auth__footer--remember">Nhớ đăng nhập</label>
             </div>
           </div>
-          <div className="auth__box is-flex al-center ju-center">
+          <div className="auth__box is-flex al-center ju-center" onClick={onSubmit}>
             <p>Đăng nhập</p>
           </div>
           <div className="auth__redirect is-flex al-center ju-right">

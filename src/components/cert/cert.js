@@ -48,8 +48,10 @@ const Cert = (props) => {
     // Save the file
     saveAs(fileToSave, fileName);
   };
+  const getUrl = window.location.href
 
   console.log("data >>", data);
+  
   return (
     <div className="certificat-wrapper certificat-wrapper--front">
       <div className="global">
@@ -107,7 +109,7 @@ const Cert = (props) => {
               />
           </div> */}
           <div className="qr-code is-flex al-center ju-center">
-            <Qrcodetosvg data="abc" />
+            <Qrcodetosvg data={getUrl} />
           </div>
           <div className="reg">
             <div className="line1">

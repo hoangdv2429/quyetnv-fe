@@ -65,7 +65,7 @@
     width: 40px;
     height: 40px;
     display: flex;
-    font-size: 1.5rem;
+    font-size: 1.1rem;
     text-align: center;
     align-items: center;
   }
@@ -73,7 +73,7 @@
     width: 40px;
     height: 40px;
     color: #005e7a;
-    font-size: 1.5rem;
+    font-size: 1.1rem;
     transition: all 0.2s linear;
   }
   
@@ -657,7 +657,7 @@
     width: 100%;
     display: flex;
     font-family: Aptima;
-    font-size: 1.5rem;
+    font-size: 1.1rem;
     text-align: left;
     align-items: center;
     margin: 0 0 0 0;
@@ -692,7 +692,7 @@
   
   .certificat-wrapper .left .date-town {
     font-family: AptimaI;
-    font-size: 1.5rem;
+    font-size: 1.1rem;
     margin: 80px 0 0 0;
     width: 80%;
     text-align: right;
@@ -784,7 +784,7 @@
     width: 100%;
     display: flex;
     font-family: Aptima;
-    font-size: 1.5rem;
+    font-size: 1.1rem;
     text-align: left;
     align-items: center;
     margin: 0 0 0 0;
@@ -811,7 +811,7 @@
   }
   .certificat-wrapper .right .date-town {
     font-family: AptimaI;
-    font-size: 1.5rem;
+    font-size: 1.1rem;
     margin: 100px 0 0 0;
     text-align: right;
     width: 100%;

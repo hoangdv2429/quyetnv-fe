@@ -4,7 +4,7 @@ import Footer from "./../layout/Footer";
 import Navigation from "./navigation";
 import { wrapData } from "../helper/api";
 import * as XLSX from 'xlsx';
-import Cert from "./cert";
+import Cert from "../cert/cert.js";
 import html2canvas from 'html2canvas';
 import jsPDF from 'jspdf';
 import { getAxiosInstance } from "../helper/config"
@@ -80,6 +80,23 @@ const Esign = () => {
     })
   }
 
+  //rename json object
+  const renameJsonObjectAttribute = (json, oldAttName, newAttName) => {
+    json[newAttName]= json[oldAttName];
+    delete json[oldAttName];
+  }
+
+  const modifyJsonObjName = (json, mapOfName) => {
+      // const arr = JSON.parse(json);
+      for (let obj of json) {
+        for ( const [oldName, newName] of mapOfName) {
+          renameJsonObjectAttribute(obj, oldName, newName);
+        }
+      }
+      const updatedJson = JSON.stringify( json );
+      console.log ( updatedJson );
+  }
+
   return (
     <>
       <Header />
@@ -88,7 +105,7 @@ const Esign = () => {
         <div className="esign--wrapper is-flex ju-center al-end">
           <div className="load-pdf--wrapper is-flex-col al-center ju-center">
             <div className="load-pdf__icon">
-              <i class="far fa-file-excel"></i>
+              <i className="far fa-file-excel"></i>
             </div>
             <div className="load-pdf__title">
               Upload your Excel to start storing and signing!

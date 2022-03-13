@@ -41,7 +41,7 @@ const Login = () => {
             <div className="auth__header is-flex-col al-center ju-center">
               <div className="auth__header--icon is-flex al-center ju-center ">
                 <svg
-                  class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-vubbuv"
+                  className="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-vubbuv"
                   focusable="false"
                   aria-hidden="true"
                   viewBox="0 0 24 24"
@@ -58,14 +58,14 @@ const Login = () => {
               <div class="input-effect">
                 <input class="effect effect__email" type="text" placeholder="" autoFocus onChange={handeChangeUserName}/>
                 <label>Email*</label>
-                <span class="focus-border">
+                <span className="focus-border">
                   <i></i>
                 </span>
               </div>
               <div class="input-effect">
                 <input class="effect effect__pw" type="password" placeholder="" onChange={handeChangePassword} />
                 <label>Mật khẩu*</label>
-                <span class="focus-border">
+                <span className="focus-border">
                   <i></i>
                 </span>
               </div>

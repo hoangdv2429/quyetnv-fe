@@ -12,11 +12,12 @@ import { useTable } from 'react-table'
 import { getCerts } from "../helper/api";
 import CheckBox from '@material-ui/core/Checkbox';
 import _ from 'lodash';
-
+import { useNavigate } from 'react-router-dom';
 
 const CheckList = () => {
     const [data, setData] = useState([]);
     const [isCheckAll, setIsCheckAll] = useState(false);
+    const navigate = useNavigate();
 
     const columns = React.useMemo(
         () => [
@@ -71,8 +72,8 @@ const CheckList = () => {
         setData(checkList);
     }
 
-    const handleClickOnRow = () => {
-        console.log('aaaaaa');
+    const handleClickOnRow = (e, index) => {
+        navigate(`/cert/${data[index].targetHash}`);
     }
 
     const handleCheckAll = () => {
@@ -123,7 +124,7 @@ const CheckList = () => {
                             {row.cells.map(cell => {
                                 return (
                                     <>
-                                        <TableCell {...cell.getCellProps()}>
+                                        <TableCell onClick={(e) => handleClickOnRow(e, i)} {...cell.getCellProps()}>
                                             {cell.render('Cell')}
                                         </TableCell>
                                     </>

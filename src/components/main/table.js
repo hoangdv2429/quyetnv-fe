@@ -11,10 +11,11 @@ import TableRow from '@material-ui/core/TableRow'
 import { useTable } from 'react-table'
 // import makeData from './makeData'
 import { getCerts } from "../helper/api";
-
+import { useNavigate } from 'react-router-dom';
 
 const CertList = () => {
     const [data, setData] = useState([]);
+    const navigate = useNavigate();
     const columns = React.useMemo(
         () => [
         {
@@ -62,8 +63,8 @@ const CertList = () => {
         setData(certs);
     }
 
-    const handleClickOnRow = () => {
-        console.log('aaaaaa');
+    const handleClickOnRow = (e, index) => {
+        navigate(`/cert/${data[index].targetHash}`);
     }
 
 
@@ -93,7 +94,7 @@ const CertList = () => {
                 {rows.map((row, i) => {
                 prepareRow(row)
                 return (
-                    <TableRow onClick={handleClickOnRow} {...row.getRowProps()}>
+                    <TableRow id={i.toString()} onClick={(e) => handleClickOnRow(e, i)} {...row.getRowProps()}>
                     {row.cells.map(cell => {
                         return (
                         <TableCell {...cell.getCellProps()}>

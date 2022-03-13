@@ -9,19 +9,28 @@ const Web3Utils = require('web3-utils');
 
 
 const PrintCert = (props) => {
+    // console.log(Web3Utils.sha3('a'));
+    const [url, setUrl] = useState('');
 
-  const getTargetHash = () => {
-    const cert = props.data;
-    const propHashs = [];
-    const data = Object.values(cert);
-    data.map((value) => {
-      propHashs.push(Web3Utils.sha3(value.toString()));
-    });
-    propHashs.sort();
-    const targetHash = Web3Utils.sha3(propHashs.join(''));
-  }
+    useEffect(() => {
+        // getTargetHash();
+        // await getIssuerData();
+      }, []);
+//   const getTargetHash = () => {
+//     const cert = props.data;
+//     const propHashs = [];
+//     const data = Object.values(cert);
+//     data.map((value) => {
+//       propHashs.push(Web3.utils.sha3(value.toString()));
+//     });
+//     propHashs.sort();
+//     const targetHash = Web3.utils.sha3(propHashs.join(''));
+//     setUrl(`http://localhost:3001/cert/${targetHash}`);
+//   }
+
+//   console.log(getTargetHash());
   return (
-    <div className="certificat-wrapper certificat-wrapper--front">
+    <div id={props.id} className="certificat-wrapper certificat-wrapper--front">
       <div className="global">
         <div className="right">
           <div className="schoolName bold">
@@ -77,7 +86,7 @@ const PrintCert = (props) => {
               />
           </div> */}
           <div className="qr-code is-flex al-center ju-center">
-            <Qrcodetosvg data={getTargetHash} />
+            <Qrcodetosvg data={'getTargetHash'} />
           </div>
           <div className="reg">
             <div className="line1">

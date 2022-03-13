@@ -66,7 +66,7 @@ const Esign = () => {
   const dowloadPdf = async () => {
     data.map((student, index) => {
       const input = document.getElementById(index.toString());
-      console.log(document.getElementById(student.studentID));
+      console.log(document);
       html2canvas(input, {useCORS: true})
       .then((canvas) => {
         const imgData = canvas.toDataURL('image/png');
@@ -75,7 +75,7 @@ const Esign = () => {
         const height = pdf.internal.pageSize.getHeight();
         pdf.addImage(imgData, 'JPEG', 0, 0, width, height);
         // pdf.output('dataurlnewwindow');
-        pdf.save(`${student.studentID}.pdf`);
+        pdf.save(`${student.studentId}.pdf`);
       })
     ;
     })

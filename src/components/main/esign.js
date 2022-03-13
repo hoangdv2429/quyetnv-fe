@@ -3,26 +3,26 @@ import Header from "./../layout/header";
 import Footer from "./../layout/Footer";
 import Navigation from "./navigation";
 import { wrapData } from "../helper/api";
-import * as XLSX from 'xlsx';
+import * as XLSX from "xlsx";
 import Cert from "../cert/cert.js";
-import html2canvas from 'html2canvas';
-import jsPDF from 'jspdf';
-import { getAxiosInstance } from "../helper/config"
+import html2canvas from "html2canvas";
+import jsPDF from "jspdf";
+import { getAxiosInstance } from "../helper/config";
 import PrintCert from "../cert/printCert";
 
 const Esign = () => {
-  console.log(localStorage.getItem('roles'));
+  console.log(localStorage.getItem("roles"));
   const [data, setData] = useState([]);
   const convertToJson = (csv) => {
-    var lines = csv.split('\n');
+    var lines = csv.split("\n");
     var result = [];
 
-    var headers = lines[0].split(',');
+    var headers = lines[0].split(",");
 
     for (var i = 1; i < lines.length - 1; i++) {
       //csv auto add \n at the end of file, to be fix
       var obj = {};
-      var currentline = lines[i].split(',');
+      var currentline = lines[i].split(",");
 
       for (var j = 0; j < headers.length; j++) {
         obj[headers[j]] = currentline[j];
@@ -46,7 +46,7 @@ const Esign = () => {
       // evt = on_file_select event
       /* Parse data */
       const bstr = evt.target.result;
-      const wb = XLSX.read(bstr, { type: 'binary' });
+      const wb = XLSX.read(bstr, { type: "binary" });
 
       /* Get first worksheet */
       const wsname = wb.SheetNames[0];
@@ -66,44 +66,67 @@ const Esign = () => {
 
   //for upload cert to mongo
   const UploadCert = async (theData) => {
-      await wrapData(theData);
-  }
+    await wrapData(theData);
+  };
 
   const dowloadPdf = async () => {
     data.map((student, index) => {
       const input = document.getElementById(index.toString());
       console.log(document);
-      html2canvas(input, {useCORS: true})
-      .then((canvas) => {
-        const imgData = canvas.toDataURL('image/png');
+      html2canvas(input, { useCORS: true }).then((canvas) => {
+        const imgData = canvas.toDataURL("image/png");
         // const pdf = new jsPDF('l', null, null, true);
-        const pdf = new jsPDF ("p", "mm", "a4");
+        const pdf = new jsPDF("p", "mm", "a4");
         const width = pdf.internal.pageSize.getWidth();
         const height = pdf.internal.pageSize.getHeight();
-        pdf.addImage(imgData, 'JPEG', 0, 0, width, height);
+        pdf.addImage(imgData, "JPEG", 0, 0, width, height);
         // pdf.output('dataurlnewwindow');
         pdf.save(`${student.studentId}.pdf`);
-      })
-    ;
-    })
-  }
+      });
+    });
+  };
 
   //rename json object
   const renameJsonObjectAttribute = (json, oldAttName, newAttName) => {
-    json[newAttName]= json[oldAttName];
+    json[newAttName] = json[oldAttName];
     delete json[oldAttName];
-  }
+  };
 
   const modifyJsonObjName = (json, mapOfName) => {
-      // const arr = JSON.parse(json);
-      for (let obj of json) {
-        for ( const [oldName, newName] of mapOfName) {
-          renameJsonObjectAttribute(obj, oldName, newName);
+    // const arr = JSON.parse(json);
+    for (let obj of json) {
+      for (const [oldName, newName] of mapOfName) {
+        renameJsonObjectAttribute(obj, oldName, newName);
+      }
+    }
+    const updatedJson = JSON.stringify(json);
+    console.log(updatedJson);
+  };
+
+  //ultis for spotting abnormal in excel files
+  const spotDifferentField = (currentSet, predefinedSet, diffField) => {
+    let equal = false;
+    for (const key in currentSet) {
+      for (const keyTwo in predefinedSet) {
+        if (currentSet[key] === predefinedSet[keyTwo]) {
+          equal = true;
+          break;
         }
       }
-      const updatedJson = JSON.stringify( json );
-      console.log ( updatedJson );
-  }
+      if (equal != true) diffField.push(currentSet[key]);
+      equal = false;
+    }
+
+    return diffField;
+  };
+
+  /* getting oject properties and compare to predefined set */
+  const DiffPropertiesOfObject = (object, predefinedSet) => {
+    let _currentSet = Object.getOwnPropertyNames(object);
+    let diffField = [];
+    spotDifferentField(_currentSet, predefinedSet, diffField);
+    return diffField;
+  };
 
   return (
     <>
@@ -121,13 +144,18 @@ const Esign = () => {
             <div className="load-pdf__btn">
               <div class="upload-btn-wrapper">
                 <button class="btn">Load Exel</button>
-                <input type="file" name="myfile" onChange={filePathset.bind()} />
-                
+                <input
+                  type="file"
+                  name="myfile"
+                  onChange={filePathset.bind()}
+                />
               </div>
             </div>
             <div className="load-pdf__btn">
               <div class="upload-btn-wrapper">
-                <button class="btn" onClick={dowloadPdf}>Download PDFs</button>
+                <button class="btn" onClick={dowloadPdf}>
+                  Download PDFs
+                </button>
               </div>
             </div>
           </div>
@@ -136,10 +164,13 @@ const Esign = () => {
       <Footer />
       {data.map((student, index) => {
         return (
-          <PrintCert id={index.toString()} style="display:none" data={student}></PrintCert>
-        )
+          <PrintCert
+            id={index.toString()}
+            style="display:none"
+            data={student}
+          ></PrintCert>
+        );
       })}
-      
     </>
   );
 };

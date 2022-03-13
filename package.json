@@ -14,7 +14,13 @@
     "file-saver": "^2.0.5",
     "html2canvas": "^1.4.0",
     "jspdf": "^2.5.0",
-    "axios": "^0.24.0"
+    "axios": "^0.24.0",
+    "xlsx": "^0.17.4",
+    "html2canvas": "^1.4.0",
+    "jspdf": "^2.5.0",
+    "@material-ui/core": "^4.4.3",
+    "react-table": "latest",
+    "namor": "^1.1.2"
   },
   "scripts": {
     "start": "react-scripts start",

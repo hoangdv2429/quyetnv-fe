@@ -8,9 +8,10 @@ import Cert from "../cert/cert.js";
 import html2canvas from 'html2canvas';
 import jsPDF from 'jspdf';
 import { getAxiosInstance } from "../helper/config"
+import PrintCert from "../cert/printCert";
 
 const Esign = () => {
-  console.log(getAxiosInstance());
+  console.log(localStorage.getItem('roles'));
   const [data, setData] = useState([]);
   const convertToJson = (csv) => {
     var lines = csv.split('\n');
@@ -128,7 +129,7 @@ const Esign = () => {
       <Footer />
       {data.map((student, index) => {
         return (
-          <Cert id={index.toString()} style="display:none" data={student}></Cert>
+          <PrintCert id={index.toString()} style="display:none" data={student}></PrintCert>
         )
       })}
       

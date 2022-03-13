@@ -5,53 +5,21 @@ import { saveAs } from "file-saver";
 import html2canvas from "html2canvas";
 import jsPDF from "jspdf";
 import Qrcodetosvg from "./../main/qrCert";
+const Web3Utils = require('web3-utils');
 
-const Cert = (props) => {
-  const params = useParams();
-  let navigate = useNavigate();
-  let targetHash = "";
-  targetHash = params.targetHash;
-  console.log("targetHash >>", targetHash);
-  const [data, setData] = useState({});
 
-  useEffect(() => {
-    console.log("first");
-    getPublicData();
-    // await getIssuerData();
-  }, []);
+const PrintCert = (props) => {
 
-  const getPublicData = async () => {
-    const data = await getPublicCert(targetHash);
-    console.log("getPublicData", data);
-    setData(data);
-  };
-
-  const dowloadPdf = async () => {
-    const input = document.getElementById("content");
-    html2canvas(input, { useCORS: true }).then((canvas) => {
-      const imgData = canvas.toDataURL("image/png");
-      const pdf = new jsPDF("l");
-      const width = pdf.internal.pageSize.getWidth();
-      const height = pdf.internal.pageSize.getHeight();
-      pdf.addImage(imgData, "JPEG", 0, 0, width, height);
-      // pdf.output('dataurlnewwindow');
-      pdf.save("download.pdf");
+  const getTargetHash = () => {
+    const cert = props.data;
+    const propHashs = [];
+    const data = Object.values(cert);
+    data.map((value) => {
+      propHashs.push(Web3Utils.sha3(value.toString()));
     });
-    const verifyData = await getVerifyData(targetHash);
-    const fileName = "verifyData.json";
-
-    const fileToSave = new Blob([JSON.stringify(verifyData)], {
-      type: "application/json",
-      name: fileName,
-    });
-
-    // Save the file
-    saveAs(fileToSave, fileName);
-  };
-  const getUrl = window.location.href
-
-  console.log("data >>", data);
-  
+    propHashs.sort();
+    const targetHash = Web3Utils.sha3(propHashs.join(''));
+  }
   return (
     <div className="certificat-wrapper certificat-wrapper--front">
       <div className="global">
@@ -73,32 +41,32 @@ const Cert = (props) => {
               <div className="labels">Mr/Miss:</div>
               <div className="details">
                 {/* <div className="">Ông/Bà</div> */}
-                <div className="">{data.name}</div>
+                <div className="">{props.data.name}</div>
               </div>
             </div>
             <div className="line">
               <div className="labels">Date of Birth:</div>
-              <div className="details">{data.dob}</div>
+              <div className="details">{props.data.dob}</div>
             </div>
             <div className="line">
               <div className="labels">Reading:</div>
-              <div className="details">{data.reading}</div>
+              <div className="details">{props.data.reading}</div>
             </div>
             <div className="line">
               <div className="labels">Listening:</div>
-              <div className="details">{data.listening}</div>
+              <div className="details">{props.data.listening}</div>
             </div>
             <div className="line">
               <div className="labels">Full:</div>
-              <div className="details">{data.totalScore}</div>
+              <div className="details">{props.data.totalScore}</div>
             </div>
             <div className="line">
               <div className="labels">testDate:</div>
-              <div className="details">{data.testDate}</div>
+              <div className="details">{props.data.testDate}</div>
             </div>
             <div className="line">
               <div className="labels">validDate:</div>
-              <div className="details">{data.validDate}</div>
+              <div className="details">{props.data.validDate}</div>
             </div>
           </div>
           {/* <div className="date-town">
@@ -109,7 +77,7 @@ const Cert = (props) => {
               />
           </div> */}
           <div className="qr-code is-flex al-center ju-center">
-            <Qrcodetosvg data={getUrl} />
+            <Qrcodetosvg data={getTargetHash} />
           </div>
           <div className="reg">
             <div className="line1">
@@ -125,4 +93,4 @@ const Cert = (props) => {
   );
 };
 
-export default Cert;
+export default PrintCert;

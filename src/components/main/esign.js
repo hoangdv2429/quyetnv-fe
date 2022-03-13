@@ -74,7 +74,8 @@ const Esign = () => {
       console.log(document.getElementById(student.studentID));
       html2canvas(input, { useCORS: true }).then((canvas) => {
         const imgData = canvas.toDataURL("image/png");
-        const pdf = new jsPDF("l", null, null, true);
+        // const pdf = new jsPDF("l", null, null, true);
+        const pdf = new jsPDF ("p", "mm", "a4");
         const width = pdf.internal.pageSize.getWidth();
         const height = pdf.internal.pageSize.getHeight();
         pdf.addImage(imgData, "JPEG", 0, 0, width, height);

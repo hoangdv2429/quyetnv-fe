@@ -1,11 +1,11 @@
 import React, { useEffect, useState } from "react";
-import { useParams, useNavigate } from "react-router-dom";
-import { getPublicCert, getVerifyData } from "../helper/api";
-import { saveAs } from "file-saver";
-import html2canvas from "html2canvas";
-import jsPDF from "jspdf";
+// import { useParams, useNavigate } from "react-router-dom";
+// import { getPublicCert, getVerifyData } from "../helper/api";
+// import { saveAs } from "file-saver";
+// import html2canvas from "html2canvas";
+// import jsPDF from "jspdf";
 import Qrcodetosvg from "./../main/qrCert";
-const Web3Utils = require('web3-utils');
+// const Web3Utils = require('web3-utils');
 
 
 const PrintCert = (props) => {
@@ -88,7 +88,7 @@ const PrintCert = (props) => {
           <div className="qr-code is-flex al-center ju-center">
             <Qrcodetosvg data={'getTargetHash'} />
           </div>
-          <div className="reg">
+          <div className="print--cert__reg">
             <div className="line1">
               Số hiệu: <span>DTH/1B012806</span>
             </div>

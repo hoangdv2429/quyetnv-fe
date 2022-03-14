@@ -76,7 +76,6 @@
   box-shadow: rgb(0 0 0 / 20%) 0px 2px 1px -1px,
     rgb(0 0 0 / 14%) 0px 1px 1px 0px, rgb(0 0 0 / 12%) 0px 1px 3px 0px;
   max-width: 75%;
-  height: 80vh;
   padding: 14px;
   width: 860px;
 }
@@ -84,6 +83,10 @@
 .bg__full {
   background-color: #f1f1f1;
   padding: 32px 0;
+}
+
+.h-full {
+  height: 100%;
 }
 
 .sign__left--wrapper {
@@ -100,8 +103,8 @@
     rgb(0 0 0 / 14%) 0px 1px 1px 0px, rgb(0 0 0 / 12%) 0px 1px 3px 0px;
 }
 
-.mt-24 {
-  margin-top: 24px;
+.mt-10 {
+  margin-top: 10px;
 }
 
 .al-end {
@@ -137,11 +140,93 @@
   margin-right: 8px;
 }
 
-.box__upload--btn span{
-    margin-left: 4px;
-    font-size: 12px;
+.mlr8 {
+  margin: 8px;
+}
+
+.box__upload--btn span {
+  margin-left: 4px;
+  font-size: 12px;
 }
 
 .box__upload--btn i {
-    font-size: 14px;
+  font-size: 14px;
+}
+
+.dis-none {
+  display: none;
+}
+
+.sub-screen {
+  background-color: black;
+  opacity: 0.2;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
+
+.screen-body {
+  height: 80vh;
+  position: relative;
+}
+
+.screen--convert__wrapper {
+  background-color: #fff;
+  position: absolute;
+  width: 62%;
+  /* min-height: 45%; */
+  border-radius: 5px;
+  top: 5%;
+  left: 19%;
+  height: 90%;
+  border: 1px solid rgb(49, 48, 48);
+  box-shadow: rgb(0 0 0 / 20%) 0px 2px 1px -1px,
+}
+
+.screen--convert__title {
+  text-transform: uppercase;
+  font-size: 16px;
+  font-family: "Times New Roman", Times, serif;
+  text-align-last: center;
+  margin-top: 10px;
+}
+
+.screen--convert__items > .input-effect {
+  width: 160px;
+}
+
+.screen--convert__items > .input-effect > label {
+  z-index: 1;
+  max-width: 80px;
+  font-size: 14px;
+}
+
+.mw-160 {
+  min-width: 160px;
+}
+
+.screen--convert__footer--btn {
+  border: 1px solid rgb(25, 118, 210);
+  border-radius: 5px;
+  padding: 5px 10px;
+  min-width: 100px;
+  margin: 0 5px 0;
+  text-align-last: center;
+  cursor: pointer;
+}
+
+.hover-red:hover {
+  background-color: rgb(241, 144, 144);
+  color: white
+}
+
+.hover-blue:hover {
+  background-color: rgb(70, 139, 243);
+  color: white
+}
+
+.ml380 {
+  margin-left: 380px;
 }

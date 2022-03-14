@@ -26,7 +26,7 @@ const Esign = () => {
     "testDate",
     "validDate",
     "identifyNumber",
-    "studentID",
+    "studentId",
     "name",
   ];
 
@@ -67,7 +67,7 @@ const Esign = () => {
     testDate: "Ngày thi",
     validDate: "Hiệu lực",
     identifyNumber: "Số căn cước",
-    studentID: "MSSV",
+    studentId: "MSSV",
     name: "Họ tên",
   });
 
@@ -149,7 +149,7 @@ const Esign = () => {
       html2canvas(input, { useCORS: true }).then((canvas) => {
         const imgData = canvas.toDataURL("image/png");
         // const pdf = new jsPDF('l', null, null, true);
-        const pdf = new jsPDF("p", "mm", "a4");
+        const pdf = new jsPDF("l");
 
         const width = pdf.internal.pageSize.getWidth();
         const height = pdf.internal.pageSize.getHeight();

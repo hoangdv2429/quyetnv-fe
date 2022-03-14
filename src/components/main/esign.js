@@ -9,6 +9,9 @@ import html2canvas from "html2canvas";
 import jsPDF from "jspdf";
 import { getAxiosInstance } from "../helper/config";
 
+import PrintCert from "../cert/printCert";
+
+
 const Esign = () => {
 
   const [openSub, setOpenSub] = useState(false)
@@ -17,7 +20,6 @@ const Esign = () => {
     setOpenSub(!openSub)
   }
 
-  // console.log(getAxiosInstance());
   const [data, setData] = useState([]);
   const convertToJson = (csv) => {
     var lines = csv.split("\n");
@@ -63,25 +65,36 @@ const Esign = () => {
 
       /* Update state */
       console.log(convertToJson(data)); // shows data in json format
-      await wrapData(convertToJson(data)); //upload to mongo
+      // await wrapData(convertToJson(data)); //upload to mongo
+      // UploadCert(convertToJson(data));
       setData(convertToJson(data));
     };
     reader.readAsBinaryString(f);
   };
 
+  //for upload cert to mongo
+  const UploadCert = async (theData) => {
+    await wrapData(theData);
+  };
+
   const dowloadPdf = async () => {
     data.map((student, index) => {
       const input = document.getElementById(index.toString());
-      console.log(document.getElementById(student.studentID));
-      html2canvas(input, {useCORS: true})
-      .then((canvas) => {
-        const imgData = canvas.toDataURL('image/png');
-        const pdf = new jsPDF('l', null, null, true);
+
+      console.log(document);
+      html2canvas(input, { useCORS: true }).then((canvas) => {
+        const imgData = canvas.toDataURL("image/png");
+        // const pdf = new jsPDF('l', null, null, true);
+        const pdf = new jsPDF("p", "mm", "a4");
+
+      
         const width = pdf.internal.pageSize.getWidth();
         const height = pdf.internal.pageSize.getHeight();
         pdf.addImage(imgData, "JPEG", 0, 0, width, height);
         // pdf.output('dataurlnewwindow');
-        pdf.save(`${student.studentID}.pdf`);
+
+        pdf.save(`${student.studentId}.pdf`);
+
       });
     });
   };
@@ -97,13 +110,38 @@ const Esign = () => {
     for (let obj of json) {
       for (const [oldName, newName] of mapOfName) {
         renameJsonObjectAttribute(obj, oldName, newName);
+
       }
     }
     const updatedJson = JSON.stringify(json);
     console.log(updatedJson);
   };
 
-  console.log("data >>", data);
+  //ultis for spotting abnormal in excel files
+  const spotDifferentField = (currentSet, predefinedSet, diffField) => {
+    let equal = false;
+    for (const key in currentSet) {
+      for (const keyTwo in predefinedSet) {
+        if (currentSet[key] === predefinedSet[keyTwo]) {
+          equal = true;
+          break;
+        }
+      }
+      if (equal != true) diffField.push(currentSet[key]);
+      equal = false;
+    }
+
+    return diffField;
+  };
+
+  /* getting oject properties and compare to predefined set */
+  const DiffPropertiesOfObject = (object, predefinedSet) => {
+    let _currentSet = Object.getOwnPropertyNames(object);
+    let diffField = [];
+    spotDifferentField(_currentSet, predefinedSet, diffField);
+    return diffField;
+  };
+
 
   return (
     <>
@@ -166,6 +204,23 @@ const Esign = () => {
                 <label>dob</label>
               </div>
             </div>
+
+            <div className="load-pdf__btn">
+              <div class="upload-btn-wrapper">
+                <button class="btn">Load Exel</button>
+                <input
+                  type="file"
+                  name="myfile"
+                  onChange={filePathset.bind()}
+                />
+              </div>
+            </div>
+            <div className="load-pdf__btn">
+              <div class="upload-btn-wrapper">
+                <button class="btn" onClick={dowloadPdf}>
+                  Download PDFs
+                </button>
+
             <div className="screen--convert__items is-flex al-center ju-center">
               <div class="effect mw-160 is-flex ju-center al-center">
                 <label>listening</label>
@@ -205,6 +260,7 @@ const Esign = () => {
             <div className="screen--convert__items is-flex al-center ju-center">
               <div class="effect mw-160 is-flex ju-center al-center">
                 <label>testDate</label>
+
               </div>
               <div className="mlr8">
                 <i class="fas fa-long-arrow-alt-right"></i>
@@ -238,6 +294,16 @@ const Esign = () => {
         </div>
       </div>
       <Footer />
+      {data.map((student, index) => {
+        return (
+          <PrintCert
+            id={index.toString()}
+            style="display:none"
+            data={student}
+          ></PrintCert>
+        );
+      })}
+
     </>
   );
 };

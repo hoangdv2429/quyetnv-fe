@@ -11,60 +11,60 @@ import TableRow from "@material-ui/core/TableRow";
 import { useTable } from "react-table";
 // import makeData from './makeData'
 import { getCerts } from "../helper/api";
-import { Link } from "react-router-dom";
+import { useNavigate } from 'react-router-dom';
 
 const CertList = () => {
-  const [data, setData] = useState([]);
-  const columns = React.useMemo(
-    () => [
-      {
-        Header: "ID",
-        accessor: "studentId",
-      },
-      {
-        Header: "Name",
-        accessor: "name",
-      },
-      {
-        Header: "Test Date",
-        accessor: "testDate",
-      },
-      {
-        Header: "Valid Date",
-        accessor: "validDate",
-      },
-      {
-        Header: "Reading Score",
-        accessor: "reading",
-      },
-      {
-        Header: "Listening Score",
-        accessor: "listening",
-      },
-      {
-        Header: "Total Score",
-        accessor: "totalScore",
-      },
-      {
-        Header: "Upload Date",
-        accessor: "wrapTimestamp",
-      },
-    ],
-    []
-  );
+    const [data, setData] = useState([]);
+    const navigate = useNavigate();
+    const columns = React.useMemo(
+        () => [
+        {
+            Header: 'ID',
+            accessor: 'studentId',
+          },
+          {
+            Header: 'Name',
+            accessor: 'name',
+          },
+          {
+            Header: 'Test Date',
+            accessor: 'testDate',
+          },
+          {
+            Header: 'Valid Date',
+            accessor: 'validDate',
+          },
+          {
+            Header: 'Reading Score',
+            accessor: 'reading',
+          },
+          {
+            Header: 'Listening Score',
+            accessor: 'listening',
+          },
+          {
+            Header: 'Total Score',
+            accessor: 'totalScore',
+          },
+          {
+            Header: 'Upload Date',
+            accessor: 'wrapTimestamp',
+          },
+        ],
+        []
+    )
+
+    useEffect(async() => {
+        await getData();
+      }, []);
 
   useEffect(async () => {
     await getData();
   }, []);
 
-  const getData = async () => {
-    const certs = await getCerts();
-    setData(certs);
-  };
-
-  const handleClickOnRow = () => {
-    console.log('url :>> ');
-  };
+    const handleClickOnRow = (e, index) => {
+        navigate(`/cert/${data[index].targetHash}`);
+    }
 
   const { getTableProps, headerGroups, rows, prepareRow } = useTable({
     columns,
@@ -104,13 +104,29 @@ const CertList = () => {
                     );
                   })}
                 </TableRow>
-            );
-          })}
-        </TableBody>
-      </MaUTable>
-      <Footer />
-    </>
-  );
+                ))}
+            </TableHead>
+            <TableBody>
+                {rows.map((row, i) => {
+                prepareRow(row)
+                return (
+                    <TableRow id={i.toString()} onClick={(e) => handleClickOnRow(e, i)} {...row.getRowProps()}>
+                    {row.cells.map(cell => {
+                        return (
+                        <TableCell {...cell.getCellProps()}>
+                            {cell.render('Cell')}
+                        </TableCell>
+                        )
+                    })}
+                    </TableRow>
+                )
+                })}
+            </TableBody>
+            </MaUTable>
+        <Footer />
+        
+        </>
+    );
 };
 
 export default CertList;

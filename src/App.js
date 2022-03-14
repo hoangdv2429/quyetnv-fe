@@ -14,6 +14,7 @@ import "./css/footer.css"
 import "./css/header.css"
 import "./css/main.css"
 import CertList from "./components/main/table";
+import CheckList from "./components/main/checkedTabled";
 
 function App() {
   return (
@@ -24,6 +25,7 @@ function App() {
       <Route path="/esign" element={<Esign />}></Route>
       <Route path="/cert/:targetHash" element={<Cert />}></Route>
       <Route path="/list" element={<CertList />}></Route>
+      <Route path="/checkList" element={<CheckList />}></Route>
     </Routes>
   </BrowserRouter>
   );

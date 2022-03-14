@@ -104,6 +104,7 @@ export const login = async (data) => {
     try {
         const response = await instance.post('/auth/login', data);
         localStorage.setItem('accessToken', response.data.accessToken);
+        localStorage.setItem('roles', response.data.roles);
         return response.data.success;
     } catch(e) {
         console.log(e);

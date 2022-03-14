@@ -113,4 +113,10 @@ export const login = async (data) => {
     
 }
 
+export const getFile = async(fileName) => {
+    const axiosInstance = getAxiosInstance();
+    const response = await axiosInstance.get(`/certs/file/${fileName}`);
+    return response.data;
+}
+
 
